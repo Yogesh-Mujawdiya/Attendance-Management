@@ -1,5 +1,5 @@
 # <p align="center">Attendance-Management</p>
-# <p align="center">NITT Attendance Management for Faculty
+### <p align="center">Attendance Management for Faculty
 
 
 
