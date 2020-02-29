@@ -1,16 +1,16 @@
 
 # <p align="center">Attendance-Management</p>
-#        			               NITT Attendance Management for Faculty
+# <p align="center">NITT Attendance Management for Faculty
 
-## 				Copy Attendance-Management/Database/AttendanceManagement to your localhost
+## <p align="center">Copy Attendance-Management/Database/AttendanceManagement to your localhost
 
-#### 					import AttendanceManagement.sql in your phpmyadmin
+#### <p align="center">import AttendanceManagement.sql in your phpmyadmin
 
-### Change 
-### Host
-### Id
-### Password
-### Database
-## Inside Attendance-Management/Database/AttendanceManagement/Config.php
+### <p align="center">Change<br>Host
+ Id
+ Password
+ Database
+ Inside Attendance-Management/Database/AttendanceManagement/Config.php
+  </p>
 
-</p>
+
