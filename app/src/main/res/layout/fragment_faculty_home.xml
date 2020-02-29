@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/rl"
+    android:layout_height="match_parent">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewSubjects"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"/>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/AddSubjectButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        app:srcCompat="@drawable/ic_add_white_24dp"
+        android:layout_alignParentBottom="true"
+        android:foregroundGravity="center"
+        app:fabSize="normal"
+        android:backgroundTint="#000000"
+        app:borderWidth="0dp"
+        android:contentDescription="Add Subject"
+        android:layout_margin="20dp"/>
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/AddSubjectCard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:padding="10dp"
+        app:cardCornerRadius="30dp"
+        android:layout_margin="20dp"
+        app:cardBackgroundColor="#DADADA"
+        >
+        <RelativeLayout
+            android:id="@+id/AddSubjectLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/autoTextViewSubjectName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Subject Name"
+                android:layout_margin="25dp"
+                android:padding="25sp"
+                />
+
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/autoTextViewCourseName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Select Course Name"
+                android:visibility="gone"
+                android:layout_below="@+id/autoTextViewSubjectName"
+                android:layout_margin="25dp"
+                android:padding="25sp"
+                />
+
+            <Button
+                android:id="@+id/SaveSubjectButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_button_bk"
+                android:layout_below="@+id/autoTextViewCourseName"
+                android:text="Next"
+                android:textSize="25dp"
+                android:layout_margin="25dp"/>
+        </RelativeLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBarAddSubject"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:layout_margin="25dp"
+            android:padding="15dp"/>
+
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
