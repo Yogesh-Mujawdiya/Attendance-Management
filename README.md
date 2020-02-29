@@ -11,6 +11,6 @@
 
 
 
-### Change<br><ul><li>Host</li><li>Id</li><li>Password</li><li>Database</li><br>Inside Attendance-Management/Database/AttendanceManagement/Config.php
+### Change  <ul><li>Host</li><li>Id</li><li>Password</li><li>Database</li>Inside Attendance-Management/Database/AttendanceManagement/Config.php
 
 
