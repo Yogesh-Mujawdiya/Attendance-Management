@@ -1,4 +1,5 @@
-# Attendance-Management
+Attendance-Management
+Attendance-Management
 #        			               NITT Attendance Management for Faculty
 
 ## 				Copy Attendance-Management/Database/AttendanceManagement to your localhost
