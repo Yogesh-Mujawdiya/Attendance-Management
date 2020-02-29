@@ -1,4 +1,5 @@
-<center>Attendance-Management</center>
+<p align="center">
+# Attendance-Management
 #        			               NITT Attendance Management for Faculty
 
 ## 				Copy Attendance-Management/Database/AttendanceManagement to your localhost
@@ -11,3 +12,5 @@
 ### Password
 ### Database
 ## Inside Attendance-Management/Database/AttendanceManagement/Config.php
+
+</p>
