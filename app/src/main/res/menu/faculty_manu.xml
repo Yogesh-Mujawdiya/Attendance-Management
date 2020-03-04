@@ -8,4 +8,10 @@
         app:showAsAction="always"
         android:title="Logout" />
 
+    <item
+        android:id="@+id/Search_Menu"
+        android:icon="@drawable/ic_search_black_24dp"
+        app:showAsAction="always"
+        android:title="Search" />
+
 </menu>

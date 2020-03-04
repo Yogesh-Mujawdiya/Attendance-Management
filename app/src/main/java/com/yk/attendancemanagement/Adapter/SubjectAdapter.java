@@ -10,7 +10,9 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -60,7 +62,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
         this.SubjectList=SubjectList;
         controller = new StoreData(context);
         Host = controller.getHost();
-        getCourse_url =  Host+"/getMyCourse.php";
+        getCourse_url =  Host+"/getCourse.php";
     }
 
     @Override
@@ -86,8 +88,10 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
         final Dialog dialog = new Dialog(context);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.dialog_box_select_course);
-        dialog.setTitle("Choose Specification Name And Batch");
+        dialog.setTitle("Choose Specification Name, Batch And Section");
         final Spinner spinnerSelectBatch = dialog.findViewById((R.id.spinnerSelectBatch));
+        final AutoCompleteTextView autoCompleteTextView = dialog.findViewById(R.id.autoTextViewCourseName);
+        final Spinner spinnerSelectSection = dialog.findViewById((R.id.spinnerSelectSection));
         int year = Calendar.getInstance().get(Calendar.YEAR);
         ArrayList<String> spinnerArray = new ArrayList<String>();
         for(int i=0;i<=3;i++){
@@ -113,21 +117,45 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
                                     JSONObject json_data = jArray.getJSONObject(i);
                                     Courses[i] = json_data.getString("Name");
                                     CourseList.put(Courses[i],new Course(
-                                            json_data.getString("Department_Id"),
+                                            json_data.getString("DId"),
                                             json_data.getString("Id"),
-                                            json_data.getString("Name")));
+                                            json_data.getString("Name"),
+                                            Integer.parseInt(json_data.getString("Section_Count"))));
                                 }
+                                ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.select_dialog_item, Courses);
+                                autoCompleteTextView.setThreshold(1);
+                                autoCompleteTextView.setAdapter(adapter);
 
-                                Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
-                                final Spinner spinnerSelectDegree = dialog.findViewById((R.id.spinnerSelectCourse));
-                                ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(context, R.layout.spinner_item, Courses);
-                                spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
-                                spinnerSelectDegree.setAdapter(spinnerArrayAdapter);
+                                autoCompleteTextView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                                    @Override
+                                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                                        if( CourseList.get(autoCompleteTextView.getText().toString()) !=null) {
+                                            Course course = (Course) CourseList.get(autoCompleteTextView.getText().toString());
+                                            int SectionCount = course.getSectionCount();
+                                            String[] Section_List = new String[SectionCount+1];
+                                            Section_List[0]="Combine Class";
+                                            for (int i = 1; i <= SectionCount; i++) {
+                                                Section_List[i] = ""+(char) ('A' + i-1);
+                                            }
+
+                                            ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(context, R.layout.spinner_item, Section_List);
+                                            spinnerArrayAdapter.setDropDownViewResource(R.layout.spinner_item);
+                                            spinnerSelectSection.setAdapter(spinnerArrayAdapter);
+
+                                        }
+                                        else {
+                                            Toast.makeText(context, "Error : Degree not Found" , Toast.LENGTH_SHORT).show();
+                                        }
+                                    }
+                                });
+
+                                Button dialogButton = dialog.findViewById(R.id.dialogButtonOK);
                                 dialogButton.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View v) {
                                         Intent i = new Intent(context, AttendanceActivity.class);
-                                        String Degree = spinnerSelectDegree.getSelectedItem().toString();
+                                        String Degree = autoCompleteTextView.getText().toString();
                                         Course course = (Course) CourseList.get(Degree);
                                         String ID = course.getCourseId();
                                         i.putExtra("Course_Id", course.getCourseId());
@@ -135,6 +163,7 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
                                         i.putExtra("Subject_Id",subject.getID());
                                         i.putExtra("Subject_Name",subject.getName());
                                         i.putExtra("Department_Id",course.getDepartmentId());
+                                        i.putExtra("Section",spinnerSelectSection.getSelectedItem().toString());
                                         i.putExtra("Batch",spinnerSelectBatch.getSelectedItem().toString());
                                         dialog.dismiss();
                                         context.startActivity(i);
@@ -161,20 +190,11 @@ public class SubjectAdapter extends RecyclerView.Adapter<SubjectAdapter.SubjectV
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap<>();
                 params.put("SubjectId",subject.getID());
-                params.put("Id",user.getUserId());
-                params.put("Password",user.getPassword());
                 return params;
             }
         };
         RequestQueue requestQueue = Volley.newRequestQueue(context);
         requestQueue.add(stringRequest);
-
-        // setup the alert builder
-
-// add a list
-        String[] animals = {"horse", "cow", "camel", "sheep", "goat"};
-
-// create and show the alert dialog
     }
 
     @Override

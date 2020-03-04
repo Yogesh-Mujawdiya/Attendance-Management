@@ -5,6 +5,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
@@ -34,12 +37,15 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 
 public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.AttendanceViewHolder> {
@@ -60,10 +66,16 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.At
     }
 
     @Override
-    public void onBindViewHolder(final AttendanceAdapter.AttendanceViewHolder holder, int position) {
+    public void onBindViewHolder(final AttendanceAdapter.AttendanceViewHolder holder, final int position) {
         final Student student = StudentList.get(position);
         holder.checkBoxRollNo.setText(student.getRollNo().substring(student.getRollNo().length()-3));
         holder.checkBoxRollNo.setChecked(student.getStatus());
+        holder.checkBoxRollNo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                StudentList.get(position).setStatus(holder.checkBoxRollNo.isChecked());
+            }
+        });
     }
 
     @Override
@@ -71,13 +83,22 @@ public class AttendanceAdapter extends RecyclerView.Adapter<AttendanceAdapter.At
         return StudentList.size();
     }
 
-    public List<Student> getSelectedRollNo(){
-        List<Student> list = null;
+    public String getPresentRollNo(){
+        ArrayList<String> Present = new ArrayList<>();
         for(int i=0;i<StudentList.size();i++){
             if(StudentList.get(i).getStatus())
-                list.add(StudentList.get(i));
+                Present.add(StudentList.get(i).getRollNo());
         }
-        return list;
+        return TextUtils.join(",", Present);
+    }
+
+    public String getAbsentRollNo(){
+        ArrayList<String> Absent = new ArrayList<>();
+        for(int i=0;i<StudentList.size();i++){
+            if(!StudentList.get(i).getStatus())
+                Absent.add(StudentList.get(i).getRollNo());
+        }
+        return TextUtils.join(",", Absent);
     }
 
     class AttendanceViewHolder extends RecyclerView.ViewHolder {

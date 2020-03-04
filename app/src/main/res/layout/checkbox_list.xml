@@ -1,29 +1,14 @@
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/item_view"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    app:cardCornerRadius="10dp"
-    android:layout_weight="1"
-    android:padding="5dp"
-    android:layout_margin="5dp">
+    android:layout_height="wrap_content">
 
-
-    <LinearLayout
+    <CheckBox
+        android:id="@+id/checkbox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:buttonTint="#000"
+        android:backgroundTintMode="add"
+        android:gravity="center" />
 
-
-        <CheckBox
-            android:id="@+id/checkbox"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingLeft="4dp"
-            android:paddingRight="4dp" />
-
-    </LinearLayout>
-</androidx.cardview.widget.CardView>
+</LinearLayout>

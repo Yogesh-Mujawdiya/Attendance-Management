@@ -32,8 +32,8 @@
         android:id="@+id/AddSubjectCard"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_centerInParent="true"
+        android:visibility="gone"
         android:padding="10dp"
         app:cardCornerRadius="30dp"
         android:layout_margin="20dp"
@@ -53,26 +53,16 @@
                 android:padding="25sp"
                 />
 
-            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
-                android:id="@+id/autoTextViewCourseName"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Select Course Name"
-                android:visibility="gone"
-                android:layout_below="@+id/autoTextViewSubjectName"
-                android:layout_margin="25dp"
-                android:padding="25sp"
-                />
-
             <Button
                 android:id="@+id/SaveSubjectButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/login_button_bk"
-                android:layout_below="@+id/autoTextViewCourseName"
-                android:text="Next"
+                android:layout_below="@+id/autoTextViewSubjectName"
+                android:text="Add Subject"
                 android:textSize="25dp"
                 android:layout_margin="25dp"/>
+
         </RelativeLayout>
 
         <ProgressBar

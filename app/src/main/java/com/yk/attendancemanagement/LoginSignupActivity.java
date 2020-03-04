@@ -77,15 +77,15 @@ public class LoginSignupActivity extends Activity {
         controller = new StoreData(this);
         // reference ui
         content = findViewById(R.id.content);
-        editTextLoginId = (EditText) findViewById(R.id.editTextEmail);
-        editTextLoginPassword = (EditText) findViewById(R.id.editTextPassword);
+        editTextLoginId = findViewById(R.id.editTextEmail);
+        editTextLoginPassword = findViewById(R.id.editTextPassword);
         switchCompatLoginUserType = findViewById(R.id.userType);
 
-        editTextRegisterUserName = (EditText) findViewById(R.id.editTextSignUpUserName);
-        editTextRegisterUserID = (EditText) findViewById(R.id.editTextSignUpUserId);
-        editTextRegisterMobile = (EditText) findViewById(R.id.editTextSignUpUserMobile);
+        editTextRegisterUserName = findViewById(R.id.editTextSignUpUserName);
+        editTextRegisterUserID = findViewById(R.id.editTextSignUpUserId);
+        editTextRegisterMobile = findViewById(R.id.editTextSignUpUserMobile);
         editTextRegisterEmail = findViewById(R.id.editTextSignUpUserEmail);
-        editTextRegisterPassword = (EditText) findViewById(R.id.editTextSignUpUserPassword);
+        editTextRegisterPassword = findViewById(R.id.editTextSignUpUserPassword);
         switchCompatRegisterUserType = findViewById(R.id.signUpUserType);
         LoginBtn = findViewById(R.id.btn_Login);
         RegisterBtn = findViewById(R.id.btn_Register);
@@ -128,18 +128,6 @@ public class LoginSignupActivity extends Activity {
             public void onClick(View v) {
                 findViewById(R.id.login_layout).setVisibility(View.VISIBLE);
                 findViewById(R.id.signUp_layout).setVisibility(View.GONE);
-            }
-        });
-
-        findViewById(R.id.screen_close_btn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(LoginSignupActivity.this, "Welcome" , Toast.LENGTH_SHORT).show();
-                User user = new User("1234", "Gust","0123456789", "xyz@domain.com", "Faculty");
-                controller.setCurrentUser(user);
-                Intent i = new Intent(LoginSignupActivity.this, StudentActivity.class);
-                startActivity(i);
-                finish();
             }
         });
 

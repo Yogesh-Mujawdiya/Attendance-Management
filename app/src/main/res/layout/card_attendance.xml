@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    app:cardBackgroundColor="#CACACA"
+    app:cardCornerRadius="10dp"
+    android:layout_margin="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/textViewRollNo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
+                android:text="205118090"
+                android:textSize="25dp"
+                android:layout_marginTop="20dp"/>
+            <TextView
+                android:id="@+id/textViewTotalClassLabel"
+                android:layout_width="wrap_content"
+                android:textStyle="bold"
+                android:layout_height="wrap_content"
+                android:text="Total : "
+                android:layout_below="@+id/textViewRollNo"
+                android:layout_marginLeft="20dp"
+                android:padding="10dp"/>
+            <TextView
+                android:id="@+id/textViewTotalClass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5"
+                android:layout_toRightOf="@+id/textViewTotalClassLabel"
+                android:layout_below="@+id/textViewRollNo"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/textViewAttendClassLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Attend : "
+                android:layout_toRightOf="@+id/textViewTotalClass"
+                android:layout_below="@+id/textViewRollNo"
+                android:layout_marginLeft="20dp"
+                android:textStyle="bold"
+                android:padding="10dp"/>
+
+            <TextView
+                android:id="@+id/textViewAttendClass"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@+id/textViewAttendClassLabel"
+                android:text="2"
+                android:layout_below="@+id/textViewRollNo"
+                android:padding="10dp"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="100dp"
+            android:layout_height="100dp">
+
+            <ProgressBar
+                android:id="@+id/pb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="@android:style/Widget.ProgressBar.Horizontal"
+                android:progressDrawable="@drawable/progressbar_states_rad"
+                android:layout_margin="10dp"
+                android:progress="25"
+                />
+
+            <TextView
+                android:id="@+id/tv"
+                android:layout_width="match_parent"
+                android:layout_height="250dp"
+                android:gravity="center"
+                android:text="25%"
+                android:layout_centerInParent="true"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

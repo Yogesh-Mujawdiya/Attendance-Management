@@ -1,9 +1,33 @@
 package com.yk.attendancemanagement.Class;
 
 public class Course {
-    String DepartmentId, CourseId, DepartmentName, CourseName;
-    int StudentCount;
+    String DepartmentId, CourseId, DepartmentName, CourseName, Qualification_Code;
+    int StudentCount, SectionCount;
     boolean Status;
+
+    public Course(String departmentId, String courseId, String courseName, String qualification_Code, int studentCount, int sectionCount) {
+        DepartmentId = departmentId;
+        CourseId = courseId;
+        CourseName = courseName;
+        Qualification_Code = qualification_Code;
+        StudentCount = studentCount;
+        SectionCount = sectionCount;
+    }
+
+    public String getQualification_Code() {
+        return Qualification_Code;
+    }
+
+    public void setQualification_Code(String qualification_Code) {
+        Qualification_Code = qualification_Code;
+    }
+
+    public Course(String departmentId, String courseId, String courseName, int sectionCount) {
+        DepartmentId = departmentId;
+        CourseId = courseId;
+        CourseName = courseName;
+        SectionCount = sectionCount;
+    }
 
     public Course(String departmentId, String courseId, String courseName) {
         DepartmentId = departmentId;
@@ -37,6 +61,14 @@ public class Course {
     }
 
     public Course() {
+    }
+
+    public int getSectionCount() {
+        return SectionCount;
+    }
+
+    public void setSectionCount(int sectionCount) {
+        SectionCount = sectionCount;
     }
 
     public String getDepartmentId() {

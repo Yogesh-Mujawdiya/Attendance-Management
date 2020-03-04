@@ -4,9 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECECEC"
     tools:context=".AttendanceActivity">
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/AttendanceList"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:layout_above="@+id/SaveAttendanceBtn" />
+
+    <Button
+        android:id="@+id/SaveAttendanceBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Save"
+        android:textSize="25dp"
+        android:background="@drawable/thumb"
+        android:textStyle="bold"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>
