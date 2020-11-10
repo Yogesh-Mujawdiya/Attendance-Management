@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:custom="http://schemas.android.com/tools"
-    app:cardBackgroundColor="#CACACA"
-    app:cardCornerRadius="10dp"
-    android:layout_margin="10dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="#CACACA"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="10dp">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -74,7 +76,7 @@
                 style="@android:style/Widget.ProgressBar.Horizontal"
                 android:progressDrawable="@drawable/progressbar_states_rad"
                 android:layout_margin="10dp"
-                android:progress="25"
+                android:progress="0"
                 />
 
             <TextView
@@ -82,11 +84,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:gravity="center"
-                android:text="25%"
+                android:text="0%"
                 android:layout_centerInParent="true"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp" />
 
         </RelativeLayout>
     </LinearLayout>
-</androidx.cardview.widget.CardView>
+    </androidx.cardview.widget.CardView>
+</RelativeLayout>

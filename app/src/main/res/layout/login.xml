@@ -10,8 +10,6 @@
     android:layout_marginBottom="@dimen/loginViewsMargin"
     android:background="@color/whiteCardColor">
 
-
-
     <LinearLayout
         style="@style/linearParent"
         android:layout_gravity="center"
@@ -31,7 +29,7 @@
                 style="@style/modifiedEditText"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
-                android:hint="@string/login_email_hint"/>
+                android:hint="Email/ID"/>
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout

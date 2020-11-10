@@ -1,9 +1,10 @@
 package com.yk.attendancemanagement.Class;
 
-import android.widget.ProgressBar;
+import java.util.Date;
 
 public class User {
-    String UserId, Name, Email, Mobile, UserType, Password;
+    String UserId, Name, Email, Sex, Mobile, UserType, Password;
+    Date date;
 
     public User(String userId,String name,String mobile, String email, String userType) {
         UserId = userId;
@@ -22,8 +23,34 @@ public class User {
         Password = password;
     }
 
+    public User(String userId, String name, String email, String sex, String mobile, String userType, String password, Date date) {
+        UserId = userId;
+        Name = name;
+        Email = email;
+        Sex = sex;
+        Mobile = mobile;
+        UserType = userType;
+        this.date = date;
+    }
+
     public User(){
 
+    }
+
+    public String getSex() {
+        return Sex;
+    }
+
+    public void setSex(String sex) {
+        Sex = sex;
+    }
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
     }
 
     public String getMobile() {

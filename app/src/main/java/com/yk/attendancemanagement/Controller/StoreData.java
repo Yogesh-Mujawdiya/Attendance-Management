@@ -15,21 +15,10 @@ public class StoreData {
         this.context = context;
     }
 
-    public void setLocalHost(String Host){
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = pref.edit();
-        editor.putString("localHost", Host);
-        editor.commit();
-    }
-
-    public String getLocalHost(){
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
-        return pref.getString("localHost", "");
-    }
 
     public void setCurrentUser(User user)
     {
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("token", "True");
         editor.putString("Type", user.getUserType());
@@ -42,25 +31,22 @@ public class StoreData {
     }
 
     public boolean isFaculty(){
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
-        if (pref.getString("Type", "").equals("Faculty"))
-            return true;
-        else
-            return false;
+        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, Context.MODE_PRIVATE);
+        return pref.getString("Type", "").equals("Faculty");
     }
     public void setHost(String host){
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString("Host", host);
         editor.commit();
     }
     public String getHost(){
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, Context.MODE_PRIVATE);
         return pref.getString("Host", "");
     }
     public User getCurrentUser()
     {
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, Context.MODE_PRIVATE);
 
         if (!pref.contains("token"))
             return null;
@@ -75,15 +61,13 @@ public class StoreData {
     }
 
     public void logoutUser(){
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = pref.edit();
         editor.clear().commit();
     }
 
     public boolean isLogin(){
-        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, context.MODE_PRIVATE);
-        if (pref.contains("token"))
-            return true;
-        return false;
+        SharedPreferences pref = context.getSharedPreferences(KEY_PREFERENCES_NAME, Context.MODE_PRIVATE);
+        return pref.contains("token");
     }
 }

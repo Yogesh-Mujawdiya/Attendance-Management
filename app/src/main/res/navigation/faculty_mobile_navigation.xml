@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/navigation_profile"
-        android:name="com.yk.attendancemanagement.Faculty.ProfileFragment"
+        android:name="com.yk.attendancemanagement.ProfileFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_faculty_profile" />
+        tools:layout="@layout/fragment_profile" />
 </navigation>

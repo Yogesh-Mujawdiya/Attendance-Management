@@ -52,6 +52,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 @RequiresApi(api = Build.VERSION_CODES.KITKAT)
 public class LoginSignupActivity extends Activity {
@@ -61,7 +63,7 @@ public class LoginSignupActivity extends Activity {
     EditText editTextRegisterUserID, editTextRegisterUserName, editTextRegisterMobile, editTextRegisterPassword, editTextRegisterEmail;
     SwitchCompat switchCompatRegisterUserType;
     StoreData controller;
-    private String Host , login_url, register_url;
+    private String Host , login_url, register_url,webmail_login_url;
     private Button LoginBtn, RegisterBtn;
     ProgressBar progressBarRegister,progressBarLogin;
     View content;
@@ -113,7 +115,6 @@ public class LoginSignupActivity extends Activity {
                 RegisterUser();
             }
         });
-
 
         findViewById(R.id.textViewSignUp).setOnClickListener(new View.OnClickListener() {
             @Override

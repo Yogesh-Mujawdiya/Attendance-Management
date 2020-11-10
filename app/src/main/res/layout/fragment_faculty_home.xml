@@ -49,19 +49,62 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Select Subject Name"
-                android:layout_margin="25dp"
-                android:padding="25sp"
+                android:imeOptions="actionNext"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:padding="15sp"
                 />
 
-            <Button
-                android:id="@+id/SaveSubjectButton"
+            <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                android:id="@+id/autoTextViewCourseName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/login_button_bk"
+                android:hint="Course"
+                android:visibility="gone"
                 android:layout_below="@+id/autoTextViewSubjectName"
-                android:text="Add Subject"
-                android:textSize="25dp"
-                android:layout_margin="25dp"/>
+                android:imeOptions="actionNext"
+                android:layout_marginTop="25dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:padding="15sp"
+                />
+
+            <LinearLayout
+                android:id="@+id/SubjectData"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/autoTextViewCourseName"
+                android:layout_margin="25dp"
+                android:orientation="horizontal">
+
+
+                <Button
+                    android:id="@+id/BackButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_button_bk"
+                    android:layout_weight="1"
+                    android:visibility="gone"
+                    android:layout_below="@+id/autoTextViewCourseName"
+                    android:text="Back"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="25dp"
+                    />
+
+                <Button
+                    android:id="@+id/SaveSubjectButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/login_button_bk"
+                    android:layout_below="@+id/SubjectData"
+                    android:text="Next"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="25dp"/>
+            </LinearLayout>
 
         </RelativeLayout>
 

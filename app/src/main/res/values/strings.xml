@@ -9,8 +9,8 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-    <!--    <string name="localhost">http://10.0.0.0/AttendanceManagement</string>-->
-    <string name="localhost">http://my-attendance-management.000webhostapp.com</string>
+        <string name="localhost">http://192.168.43.186/AttendanceManagement</string>
+<!--    <string name="localhost">http://my-attendance-management.000webhostapp.com</string>-->
     <string name="title_activity_main">MainActivity</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
